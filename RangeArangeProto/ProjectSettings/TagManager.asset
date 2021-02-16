@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Erea
+  - Search
+  - EmptyErea
   layers:
   - Default
   - TransparentFX

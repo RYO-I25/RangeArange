@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody m_rigidbody;
     public bool m_isGround = false;
-    public GameObject stageManager;
+    public GameObject moveErea;
 
     // Use this for initialization
     void Start () {
@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            StageManger manager = stageManager.GetComponent<StageManger>();
-            if (manager){
-                manager.SetStageChangeMode();
+            if (moveErea)
+            {
+                if (moveErea.GetComponent<EreaChanger>().MoveErea())
+                {
+                    gameObject.transform.SetParent(moveErea.transform);
+                }
             }
         }
     }
@@ -50,6 +53,24 @@ public class PlayerController : MonoBehaviour {
         if(collision.collider.tag == "Ground")
         {
             m_isGround = true;
+            
+        }
+        
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.tag == "Erea")
+        {
+            moveErea = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.tag == "Erea")
+        {
+            moveErea = null;
         }
     }
 

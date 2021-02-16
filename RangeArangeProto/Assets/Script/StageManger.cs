@@ -95,17 +95,21 @@ public class StageManger : MonoBehaviour {
     {
         m_player.SetActive(false);
         mainCamera.SetActive(false);
+        subCamera.SetActive(true);
         m_isModeChange = true;
         m_firstStageSelected = false;
         m_keySideNum = 0;
         m_keyUpNum = 0;
+        Debug.Log("ステージ変えれるモード");
     }
 
     public void ResetStageChangeMode()
     {
         m_player.SetActive(true);
         mainCamera.SetActive(true);
+        subCamera.SetActive(false);
         m_isModeChange = false;
         m_firstStageSelected = false;
+        Debug.Log("通常モード");
     }
 }
