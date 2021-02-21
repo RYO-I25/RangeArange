@@ -9,6 +9,7 @@ public class EreaChanger : MonoBehaviour {
     public Vector3 ereaPos;
     public Vector3 emptyPos; 
     private bool isMoving = false;
+    private float slideSpeed = 0.05f;
 
     public Vector3 _displace;
     public Vector3 _direciton;
@@ -30,7 +31,7 @@ public class EreaChanger : MonoBehaviour {
 
                 if (Vector3.Distance(emptyPos, transform.position) > 0.01f)
                 {
-                    transform.position += direciton * 0.1f;
+                    transform.position += direciton * slideSpeed;
 
                 }
                 else
@@ -45,7 +46,7 @@ public class EreaChanger : MonoBehaviour {
 
                 if (Vector3.Distance(ereaPos, emptyErea.transform.position) > 0.01f)
                 {
-                    emptyErea.transform.position += direciton * 0.1f;
+                    emptyErea.transform.position += direciton * slideSpeed;
                 }
                 else
                 {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     private float MOVESPEED = 0.05f;
-    private float JUMPPOWER = 7.5f;
+    private float JUMPPOWER = 11.5f;
 
     private Rigidbody m_rigidbody;
     public bool m_isGround = false;
