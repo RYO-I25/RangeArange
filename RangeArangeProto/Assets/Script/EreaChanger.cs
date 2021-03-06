@@ -9,7 +9,7 @@ public class EreaChanger : MonoBehaviour {
     public Vector3 ereaPos;
     public Vector3 emptyPos; 
     private bool isMoving = false;
-    private float slideSpeed = 0.05f;
+    private float slideSpeed = 0.075f;
 
     public Vector3 _displace;
     public Vector3 _direciton;

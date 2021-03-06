@@ -9,6 +9,8 @@ TagManager:
   - Erea
   - Search
   - EmptyErea
+  - ballet
+  - PlayerSearch
   layers:
   - Default
   - TransparentFX

@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour {
 
     private float MOVESPEED = 0.05f;
     private float JUMPPOWER = 11.5f;
+    private int m_HP = 3;
 
     private Rigidbody m_rigidbody;
     public bool m_isGround = false;
     public GameObject moveErea;
+    public Slider HPSlider;
+
 
     // Use this for initialization
     void Start () {
@@ -46,6 +52,14 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+
+        if(m_HP <= 0)
+        {
+            Scene loadScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(loadScene.name);
+        }
+
+        HPSlider.value =  ((float)m_HP / 3.0f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -71,6 +85,10 @@ public class PlayerController : MonoBehaviour {
         if (collision.tag == "Erea")
         {
             moveErea = null;
+        }
+        if(collision.tag == "ballet")
+        {
+            m_HP--;
         }
     }
 
